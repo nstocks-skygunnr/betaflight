@@ -160,7 +160,7 @@ void spiInitDevice(spiDevice_e device)
 
     LL_SPI_SetFIFOThreshold(dev, LL_SPI_FIFO_TH_01DATA);
     LL_SPI_Init(dev, &defaultInit);
-    if (device == SPIDEV_3) {
+    if (device == SPIDEV_4) {
         // MISO/MOSI Swap for GYRO 2 on GUNNRH7V1
         LL_SPI_EnableIOSwap(dev);
     }
