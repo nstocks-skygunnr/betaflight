@@ -510,10 +510,10 @@ void batteryInit(void)
 
 void batteryUpdateCurrentMeter(timeUs_t currentTimeUs)
 {
-    if (batteryCellCount == 0) {
-        currentMeterReset(&currentMeter);
-        return;
-    }
+    //if (batteryCellCount == 0) {
+    //    currentMeterReset(&currentMeter);
+    //    return;
+    //}
 
     static uint32_t ibatLastServiced = 0;
     const int32_t lastUpdateAt = cmp32(currentTimeUs, ibatLastServiced);
