@@ -202,7 +202,7 @@ static void adcInitDevice(adcDevice_t *adcdev, int channelCount)
     // DeInit is done in adcInit().
 
     hadc->Init.ClockPrescaler           = ADC_CLOCK_SYNC_PCLK_DIV4;
-    hadc->Init.Resolution               = ADC_RESOLUTION_12B;
+    hadc->Init.Resolution               = ADC_RESOLUTION_16B;
     hadc->Init.ScanConvMode             = ENABLE;                        // Works with single channel, too
     hadc->Init.EOCSelection             = ADC_EOC_SINGLE_CONV;
     hadc->Init.LowPowerAutoWait         = DISABLE;
@@ -226,7 +226,11 @@ static void adcInitDevice(adcDevice_t *adcdev, int channelCount)
 #endif
 
     hadc->Init.Overrun                  = ADC_OVR_DATA_OVERWRITTEN;
-    hadc->Init.OversamplingMode         = DISABLE;
+    hadc->Init.OversamplingMode         = ENABLE;
+    hadc->Init.Oversampling.Ratio                   = 32 ;
+    hadc->Init.Oversampling.RightBitShift           = ADC_RIGHTBITSHIFT_5 ;
+    hadc->Init.Oversampling.TriggeredMode           = ADC_TRIGGEREDMODE_SINGLE_TRIGGER ;
+    hadc->Init.Oversampling.OversamplingStopReset   = ADC_REGOVERSAMPLING_CONTINUED_MODE ;
 
     // Initialize this ADC peripheral
 
